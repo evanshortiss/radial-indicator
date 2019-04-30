@@ -1,4 +1,4 @@
-interface RadialIndicatorOptions {
+export interface RadialIndicatorOptions {
   value?: number
   radius?: number
   barWidth?: number
@@ -25,33 +25,16 @@ interface RadialIndicatorOptions {
   onChange?: () => void
 }
 
-type RadialFormatFn = (value: number) => string
+export type RadialFormatFn = (value: number) => string
 
-interface RadialIndicatorInstance<ValidOptions> {
+export interface RadialIndicatorInstance {
   defaults: RadialIndicatorOptions
   animate: (value: number) => void
   value: (value: number) => void
-  option: <Key extends keyof ValidOptions>(
+  option: <Key extends keyof RadialIndicatorOptions>(
     property: Key,
-    value: ValidOptions[Key]
+    value: RadialIndicatorOptions[Key]
   ) => void
 }
 
-interface RadialIndicatorStatic {
-  defaults: RadialIndicatorOptions
-  (
-    selector: HTMLElement | String,
-    options: RadialIndicatorOptions
-  ): RadialIndicatorInstance<RadialIndicatorOptions>
-}
-
-declare module 'radial-indicator' {
-  global {
-    interface Window {
-      radialIndicator: RadialIndicatorStatic
-    }
-  }
-
-  const radialIndicator: RadialIndicatorStatic
-  export = radialIndicator
-}
+export function radialIndicator (selector: HTMLElement | String, options: RadialIndicatorOptions): RadialIndicatorInstance
