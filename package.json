@@ -1,0 +1,30 @@
+{
+  "name": "@evanshortiss/radial-indicator",
+  "version": "1.0.0",
+  "description": "A simple and light weight circular indicator plugin.",
+  "main": "radial-indicator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "standard radial-indicator.js --fix"
+  },
+  "types": "radial-indicator.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanshortiss/radial-indicator.git"
+  },
+  "author": "Evan Shortiss",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/evanshortiss/radial-indicator/issues"
+  },
+  "homepage": "https://github.com/evanshortiss/radial-indicator#readme",
+  "devDependencies": {
+    "standard": "~12.0.1"
+  },
+  "contributors": [
+    {
+      "name": "Sudhanshu Yadav",
+      "url": "https://github.com/s-yadav/"
+    }
+  ]
+}
