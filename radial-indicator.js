@@ -3,21 +3,21 @@
   var global = Function('return this')() || (42, eval)('this')
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], function ($) {
-      return (global.radialIndicator = factory($, global))
+      return (global.radialIndicator = factory(global))
     })
   } else if (typeof module === 'object' && module.exports) {
     module.exports = global.document
-      ? factory(require('jquery'), global)
+      ? factory(global)
       : function (w) {
         if (!w.document) {
           throw new Error('radialIndiactor requires a window with a document')
         }
-        return factory(require('jquery')(w), w)
+        return factory(w)
       }
   } else {
-    global.radialIndicator = factory(global.jQuery, global)
+    global.radialIndicator = factory(global)
   }
-}(function ($, window, undefined) {
+}(function (window) {
   'use strict'
   var document = window.document
 
@@ -482,7 +482,7 @@
   window.radialIndicator = radialIndicator
 
   // add as a jquery plugin
-  if ($) {
+  if (window.$ && window.$.fn) {
     $.fn.radialIndicator = function (options) {
       return this.each(function () {
         var newPCObj = radialIndicator(this, options)
