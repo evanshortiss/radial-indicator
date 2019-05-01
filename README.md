@@ -14,6 +14,41 @@ Notable changes:
 * Published on npm as `@evanshortiss/radial-indicator`
 * Changed name from camel case to use hyphens
 
+
+## Installation
+
+Current install is from GitHub types branch. might publish to npm eventually.
+
+```
+npm install evanshortiss/radial-indicator#tyes -S
+```
+
+## TypeScript Usage
+
+
+```ts
+import radialIndicator from '@evanshortiss/radial-indicator'
+
+// Can access interfaces as properties on the import
+let indicator: radialIndicator.RadialIndicatorInstance|undefined
+
+// Create a bar that goes from green to red
+indicator = radialIndicator('#indicator-container', {
+  initValue: 100,
+  barColor: {
+    100: '#33FF66',
+    0: '#ff0000'
+  },
+  reverse: true,
+  interpolate: true,
+  radius: 30,
+  fontColor: '#000'
+})
+
+// Set to 50% 
+indicator.value(50)
+```
+
 # Original README Content (Still Relevant)
 
 A simple and light weight circular indicator plugin.
